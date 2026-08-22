@@ -240,7 +240,7 @@ html {
 }
 
 footer>a:hover {
-    transform: translateX(5px) scale(1.5);
+    transform: translateX(5px) scale(1.2);
     color: #5f4d81;
 }
 
