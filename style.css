@@ -1,0 +1,251 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: "Fluid Sans";
+    src: url(fonts/FluidSans-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Fluid Sans";
+    src: url(fonts/FluidSans-Medium.ttf);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Fluid Sans";
+    src: url(fonts/FluidSans-Bold.ttf);
+    font-weight: 700;
+}
+
+section {
+    background-color: #211c2b;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+body {
+    background-color: #17141F;
+    color: #E8e1f2;
+    font-family: "Fluid Sans", sans-serif;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+header {
+    display: flex;
+    padding: 20px;
+    margin: 20px;
+    gap: 40px;
+    justify-content: space-between;
+    background-color: #211C2B;
+    border-radius: 30px;
+}
+
+
+nav{
+    display: flex;
+    gap: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: #b99ae8;
+    transition: all 0.2s ease-in-out;
+}
+
+a:hover{
+    color: #d3c3eb;
+    transform: scale(1.05) rotate(-0.5deg);
+}
+
+#projects-container {
+    display: flex;   
+    gap: 20px;
+    align-items: stretch;
+    margin-top: 20px;
+}
+
+#projects-container>div {
+    border: 2px solid #4a405c;
+    border-radius: 15px;
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    transition: all 0.3s ease-in-out; 
+    background-color: #292238;
+    
+}
+
+
+#projects-container>div:hover {
+    transform: translateY(-5px) rotate(1deg) scale(1.1);
+    background-color: #362e47;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 500;
+    background: linear-gradient(45deg, #cc4b0f, #cccf10, #d43f3f, #d3c3eb);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: gradientAnimation 3s ease infinite;
+    transition: all 0.3s ease-in-out;
+}
+
+
+p {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+#contact span {
+    color: #9b8eae;
+    font-weight: 500;
+    width: 60px;
+    display: inline-block;
+}
+
+
+#contact>div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#ringarick {
+    font-size: 20px;
+    font-weight: 400;
+    background: linear-gradient(45deg, #670bf1, #a48ec2, #670bf1, #d3c3eb);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: gradientAnimation 3s ease infinite;
+    transition: all 0.3s ease-in-out;
+}
+#ringarick:hover {
+    
+    transform: translateX(10px) scale(1.1) rotate(0.5deg);
+    text-shadow: 0px 0px 10px #670bf1, 0px 0px 20px #a48ec2, 0px 0px 15px #d3c3eb;
+    
+    
+}
+
+
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+#welcome {
+    font-size: 34px;
+    font-weight: 700;
+    color: transparent;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #0b9df1, #152479);
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-size: 200% 200%;
+    animation: gradientAnimation 3s ease infinite;
+    letter-spacing: 0.5px;
+}
+
+main #projects div a {
+    background-color: #610da5;
+    text-align: center;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 2px 8px;
+    
+}
+main #projects div a:hover {
+    transform: scale(1.05);
+}
+
+
+
+main #contact h2 {
+    background: linear-gradient(45deg, #670bf1, #a48ec2, #670bf1, #d3c3eb);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: gradientAnimation 3s ease infinite;
+    transition: all 0.3s ease-in-out;
+}
+
+main #contact div a {
+    background: linear-gradient(45deg, #535353, #a48ec2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: gradientAnimation 3s ease infinite;
+    transition: all 0.3s ease-in-out;
+}
+
+main #contact div a:hover{
+    text-shadow: 0px 0px 10px #000000, 0px 0px 20px #e5e0ec, 0px 0px 15px #8b8b8b;
+}
+
+main #contact div:hover {
+    transform: translateX(5px);
+}
+
+main #contact div {
+    transition: all 0.1s ease-in-out;
+}
+
+footer {
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #4a405c;
+    color: #6f667d; 
+    font-size: 16px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+footer>a:hover {
+    transform: translateX(5px) scale(1.5);
+    color: #5f4d81;
+}
+
+footer>a {
+    transition: 0.3s ease-in-out;
+    display: inline-block;
+    color: #4a405c;
+}
