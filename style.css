@@ -1,3 +1,14 @@
+@root {
+    --bgcolor: #17141F;
+    --section-bgcolor: #211c2b;
+    --text-color: #E8e1f2;
+    --card-bgcolor: #292238;
+    --border-color: #4a405c;
+    --link-color: #b99ae8;
+    --cardhover-bgcolor: #362e47;
+}
+
+
 * {
     padding: 0;
     margin: 0;
@@ -22,15 +33,15 @@
 }
 
 section {
-    background-color: #211c2b;
+    background-color: var(--section-bgcolor);
     padding: 20px;
     margin: 20px;
     border-radius: 10px;
 }
 
 body {
-    background-color: #17141F;
-    color: #E8e1f2;
+    background-color: var(--bgcolor);
+    color: var(--text-color);
     font-family: "Fluid Sans", sans-serif;
     font-size: 20px;
     line-height: 1.5;
@@ -42,7 +53,7 @@ header {
     margin: 20px;
     gap: 40px;
     justify-content: space-between;
-    background-color: #211C2B;
+    background-color: var(--section-bgcolor);
     border-radius: 30px;
 }
 
@@ -54,7 +65,7 @@ nav{
 
 a{
     text-decoration: none;
-    color: #b99ae8;
+    color: var(--link-color);
     transition: all 0.2s ease-in-out;
 }
 
@@ -71,7 +82,7 @@ a:hover{
 }
 
 #projects-container>div {
-    border: 2px solid #4a405c;
+    border: 2px solid var(--border-color);
     border-radius: 15px;
     padding: 20px;
     flex: 1;
@@ -79,14 +90,14 @@ a:hover{
     flex-direction: column;
     justify-content:space-between;
     transition: all 0.3s ease-in-out; 
-    background-color: #292238;
+    background-color: var(--card-bgcolor);
     
 }
 
 
 #projects-container>div:hover {
     transform: translateY(-5px) rotate(1deg) scale(1.1);
-    background-color: #362e47;
+    background-color: var(--cardhover-bgcolor);
 }
 
 h1 {
