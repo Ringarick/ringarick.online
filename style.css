@@ -249,3 +249,75 @@ footer>a {
     display: inline-block;
     color: #4a405c;
 }
+
+
+@media (max-width: 600px) {
+    body {
+        font-size: 17px;
+    }
+
+    header {
+        flex-direction:row;
+        align-items: center;
+        gap: 15px;
+        margin: 10px;
+        padding: 15px;
+        border-radius: 20px;
+
+    }
+
+    nav {
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    section {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    #projects-container {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 15px;
+        padding-bottom: 10px;
+    }
+
+    #projects-container > div {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+    }
+
+    #projects-container > div:hover {
+        transform: none;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+
+    #contact > div {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    footer {
+        margin: 10px;
+        padding: 15px;
+    }
+}
