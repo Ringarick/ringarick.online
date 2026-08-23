@@ -6,6 +6,11 @@
     --border-color: #4a405c;
     --link-color: #b99ae8;
     --cardhover-bgcolor: #362e47;
+    --cardhover-border-color: #5f4d81;
+    --span-color: #9b8eae;
+    --footer-color: #6f667d;
+    --footer-link-color: #4a405c;
+    --diva-color: #670bf1;
 }
 
 
@@ -98,6 +103,7 @@ a:hover{
 #projects-container>div:hover {
     transform: translateY(-5px) rotate(1deg) scale(1.1);
     background-color: var(--cardhover-bgcolor);
+    border-color: var(--cardhover-border-color);
 }
 
 h1 {
@@ -137,7 +143,7 @@ p {
     gap: 10px;
 }
 #contact span {
-    color: #9b8eae;
+    color: var(--span-color);
     font-weight: 500;
     width: 60px;
     display: inline-block;
@@ -153,7 +159,7 @@ p {
 #ringarick {
     font-size: 20px;
     font-weight: 400;
-    background: linear-gradient(45deg, #670bf1, #a48ec2, #670bf1, #d3c3eb);
+    background: linear-gradient(45deg, var(--diva-color), #a48ec2, var(--diva-color), #d3c3eb);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -241,8 +247,8 @@ footer {
     margin: 20px;
     padding: 20px;
     text-align: center;
-    border-top: 1px solid #4a405c;
-    color: #6f667d; 
+    border-top: 1px solid var(--border-color);
+    color: var(--footer-color);
     font-size: 16px;
 }
 
