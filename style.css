@@ -69,6 +69,7 @@ body {
     font-family: "Fluid Sans", sans-serif;
     font-size: 20px;
     line-height: 1.5;
+    transition: all 0.3s ease-in-out;
 }
 
 header {
@@ -79,12 +80,14 @@ header {
     justify-content: space-between;
     background-color: var(--section-bgcolor);
     border-radius: 30px;
+    transition: all 0.3s ease-in-out;
 }
 
 
 nav{
     display: flex;
     gap: 20px;
+    transition: all 0.3s ease-in-out;
 }
 
 a{
@@ -115,6 +118,7 @@ a:hover{
     justify-content:space-between;
     transition: all 0.3s ease-in-out; 
     background-color: var(--card-bgcolor);
+    transition: all 0.3s ease-in-out;
     
 }
 
@@ -129,11 +133,13 @@ h1 {
     font-size: 48px;
     font-weight: 700;
     margin-bottom: 20px;
+    transition: all 0.3s ease-in-out;
 }
 
 h2 {
     font-size: 32px;
     font-weight: 500;
+    transition: all 0.3s ease-in-out;
 }
 
 h3 {
