@@ -12,6 +12,7 @@
     --footer-link-color: #4a405c;
     --diva-color: #670bf1;
     --diva-bgcolor: #610da5;
+    --footer-hover-link-color: #5f4d81;
 }
 
 .light-theme {
@@ -28,6 +29,7 @@
     --footer-link-color: #665875;
     --diva-color: #670bf1;
     --diva-bgcolor: #a891bb;
+     --footer-hover-link-color: #5f4d81;
 }
 
 
@@ -275,13 +277,13 @@ html {
 
 footer>a:hover {
     transform: translateX(5px) scale(1.2);
-    color: #5f4d81;
+    color: var(--footer-hover-link-color);
 }
 
 footer>a {
     transition: 0.3s ease-in-out;
     display: inline-block;
-    color: #4a405c;
+    color: (var(--footer-link-color));
 }
 
 
