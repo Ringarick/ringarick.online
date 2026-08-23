@@ -28,11 +28,27 @@ const sunIcon = `
           stroke-linecap="round"/>
 </svg>`;
 
-themeButton.innerHTML = moonIcon;
+function setTheme(theme) {
+    if (theme === "light") {
+        body.classList.add("light-theme");
+        themeButton.innerHTML = sunIcon;
+    } else {
+        body.classList.remove("light-theme");
+        themeButton.innerHTML = moonIcon;
+    }
+
+    localStorage.setItem("theme", theme);
+}
+
+const savedTheme = localStorage.getItem("theme") || "dark";
+
+setTheme(savedTheme);
+
 
 themeButton.addEventListener("click", () => {
-    body.classList.toggle("light-theme");
+    const newTheme = body.classList.contains("light-theme")
+        ? "dark"
+        : "light";
 
-    const isLight = body.classList.contains("light-theme");
-    localStorage.setItem("theme", isLight ? "light" : "dark");
+    setTheme(newTheme);
 });
