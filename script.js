@@ -1,5 +1,6 @@
 const themeButton = document.querySelector("#theme-button");
 const body = document.body;
+
 const moonIcon = `
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
     <path d="M21 12.8A8.5 8.5 0 0 1 11.2 3a8.5 8.5 0 1 0 9.8 9.8Z"
@@ -8,6 +9,7 @@ const moonIcon = `
           stroke-linecap="round"
           stroke-linejoin="round"/>
 </svg>`;
+
 const sunIcon = `
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
     <circle cx="12" cy="12" r="4"
@@ -25,12 +27,12 @@ const sunIcon = `
           stroke-width="2"
           stroke-linecap="round"/>
 </svg>`;
-const isLight = body.classList.contains("light-theme");
-
 
 themeButton.innerHTML = moonIcon;
 
 themeButton.addEventListener("click", () => {
     body.classList.toggle("light-theme");
-    localStorage.setItem("theme", "light");
+
+    const isLight = body.classList.contains("light-theme");
+    localStorage.setItem("theme", isLight ? "light" : "dark");
 });
