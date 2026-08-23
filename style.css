@@ -11,6 +11,23 @@
     --footer-color: #6f667d;
     --footer-link-color: #4a405c;
     --diva-color: #670bf1;
+    --diva-bgcolor: #610da5;
+}
+
+.light-theme {
+    --bgcolor: #f4f0f8;
+    --section-bgcolor: #ebe4f1;
+    --text-color: #292331;
+    --card-bgcolor: #e2d9eb;
+    --border-color: #b9a9c8;
+    --link-color: #7651a3;
+    --cardhover-bgcolor: #d8cce4;
+    --cardhover-border-color: #9676b2;
+    --span-color: #6f6279;
+    --footer-color: #817687;
+    --footer-link-color: #665875;
+    --diva-color: #670bf1;
+    --diva-bgcolor: #a891bb;
 }
 
 
@@ -198,7 +215,7 @@ p {
 }
 
 main #projects div a {
-    background-color: #610da5;
+    background-color: var(--diva-bgcolor);
     text-align: center;
     border-radius: 5px;
     display: inline-block;
