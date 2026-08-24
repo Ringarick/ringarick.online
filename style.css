@@ -58,6 +58,13 @@
     font-weight: 700;
 }
 
+@font-face {
+    font-family: "Monocraft";
+    src: url("fonts/Monocraft.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 section {
     background-color: var(--section-bgcolor);
     padding: 20px;
@@ -486,7 +493,9 @@ footer>a {
     font-size: 100px;
     line-height: 0.8;
     margin: 0 0 30px;
-    letter-spacing: -0.08em;
+    letter-spacing: 2px;
+    font-family: "Monocraft", sans-serif;
+    
 }
 
 .error-page h2 {
@@ -508,3 +517,4 @@ footer>a {
 .error-home:hover {
     transform: translateX(-2px);
 }
+
