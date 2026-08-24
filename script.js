@@ -75,8 +75,8 @@ projectCards.forEach(card => {
 
         card.style.transform = `translate(${moveX}px, ${moveY}px)`;
 
-        const rotateX = (offsetY / centerY) * 10; // Adjust the multiplier for more/less rotation
-        const rotateY = (offsetX / centerX) * 10; // Adjust the multiplier for more/less rotation
+        const rotateX = (offsetY / centerY) * 20; // Adjust the multiplier for more/less rotation
+        const rotateY = (offsetX / centerX) * 20; // Adjust the multiplier for more/less rotation
 
         card.style.transform += ` rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
     });
