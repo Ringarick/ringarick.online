@@ -1,0 +1,47 @@
+-name: Cache bust
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  cache-bust:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update asset versions
+        shell: bash
+        run: |
+          CSS_HASH=$(sha256sum style.css | cut -c1-12)
+          JS_HASH=$(sha256sum script.js | cut -c1-12)
+
+          sed -i -E \
+            "s|href=\"style\.css([^\" ]*)\"|href=\"style.css?v=${CSS_HASH}\"|" \
+            index.html
+
+          sed -i -E \
+            "s|src=\"script\.js([^\" ]*)\"|src=\"script.js?v=${JS_HASH}\"|" \
+            index.html
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet; then
+            echo "No changes needed."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add index.html
+          git commit -m "chore: update asset versions [skip ci]"
+          git push
