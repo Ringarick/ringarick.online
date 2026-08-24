@@ -38,4 +38,3 @@ The final code, design decisions, and implementation are reviewed and made by me
 No open-source license is granted.
 
 © 2026 Ringarick. All rights reserved.
-hooray i did the fucking autodeploy congrats to me
