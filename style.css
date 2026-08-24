@@ -480,21 +480,10 @@ footer>a {
     }
 }
 
-.error-page {
-    min-height: calc(100vh - 180px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 40px 20px;
-}
 
-.error-page section {
-    max-width: 600px;
-}
 
 .error-page h1 {
-    font-size: clamp(7rem, 20vw, 12rem);
+    font-size: 100px;
     line-height: 0.8;
     margin: 0 0 30px;
     letter-spacing: -0.08em;
@@ -504,6 +493,7 @@ footer>a {
     font-size: 2rem;
     margin-bottom: 15px;
 }
+
 
 .error-page p {
     margin-bottom: 30px;
@@ -516,5 +506,5 @@ footer>a {
 }
 
 .error-home:hover {
-    transform: translateY(-2px);
+    transform: translateX(-2px);
 }
