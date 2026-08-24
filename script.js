@@ -72,16 +72,31 @@ projectCards.forEach(card => {
         
         const moveX = offsetX/10;
         const moveY = offsetY/10;
+        card.style.setProperty("--move-x", `${moveX}px`);
+        card.style.setProperty("--move-y", `${moveY}px`);
+        
+         const rotateX = (offsetY / centerY) * 10; // Adjust the multiplier for more/less rotation
+        const rotateY = (offsetX / centerX) * 10; // Adjust the multiplier for more/less rotation
 
-        card.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        
+        card.style.setProperty("--rotate-x", `${-rotateX}deg`);
+        card.style.setProperty("--rotate-y", `${rotateY}deg`);
 
-        const rotateX = (offsetY / centerY) * 20; // Adjust the multiplier for more/less rotation
-        const rotateY = (offsetX / centerX) * 20; // Adjust the multiplier for more/less rotation
+        
 
-        card.style.transform += ` rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+       
+       
     });
 
     card.addEventListener("mouseleave", () => {
-        card.style.transform = "";
+        const moveX = 0;
+        const moveY = 0;
+        const rotateX = 0;
+        const rotateY = 0;
+        
+        card.style.setProperty("--move-x", `${moveX}px`);
+        card.style.setProperty("--move-y", `${moveY}px`);
+        card.style.setProperty("--rotate-x", `${rotateX}deg`);
+        card.style.setProperty("--rotate-y", `${rotateY}deg`);
     });
 });

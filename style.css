@@ -128,9 +128,9 @@ a:hover{
 
 
 #projects-container>div:hover {
-    transform: translateY(-5px) rotate(1deg) scale(1.1);
     background-color: var(--cardhover-bgcolor);
     border-color: var(--cardhover-border-color);
+
 }
 
 h1 {
@@ -391,4 +391,12 @@ footer>a {
     color: var(--span-color);
     text-align: right;
     margin:10px;
+}
+
+
+.project-card {
+    transform:
+    translate(var(--move-x, 0px), var(--move-y, 0px))
+    rotateX(var(--rotate-x, 0deg))
+    rotateY(var(--rotate-y, 0deg));
 }
