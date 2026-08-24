@@ -24,13 +24,15 @@ jobs:
           CSS_HASH=$(sha256sum style.css | cut -c1-12)
           JS_HASH=$(sha256sum script.js | cut -c1-12)
 
-          sed -i -E \
-            "s|href=\"style\.css([^\" ]*)\"|href=\"style.css?v=${CSS_HASH}\"|" \
-            index.html
+            for file in index.html 404.html; do
+                sed -i -E \
+                  "s|href=\"style\.css([^\" ]*)\"|href=\"style.css?v=${CSS_HASH}\"|" \
+                  "$file"
 
-          sed -i -E \
-            "s|src=\"script\.js([^\" ]*)\"|src=\"script.js?v=${JS_HASH}\"|" \
-            index.html
+                sed -i -E \
+                  "s|src=\"script\.js([^\" ]*)\"|src=\"script.js?v=${JS_HASH}\"|" \
+                  "$file"
+            done
 
       - name: Commit changes
         run: |
