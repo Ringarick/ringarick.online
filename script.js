@@ -70,3 +70,32 @@ projectCards.forEach(card => {
         card.style.setProperty("--rotate-y", `${rotateY}deg`);
     });
 });
+
+function animateThemeChange() {
+    const rect = themeButton.getBoundingClientRect();
+
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+
+    const newTheme = body.classList.contains("light-theme")
+        ? "dark"
+        : "light";
+
+    const overlay = document.createElement("div");
+
+    overlay.classList.add("theme-transition", newTheme);
+
+    document.body.appendChild(overlay);
+
+    overlay.style.setProperty("--x", `${x}px`);
+    overlay.style.setProperty("--y", `${y}px`);
+
+    requestAnimationFrame(() => {
+        overlay.classList.add("active");
+    });
+
+    overlay.addEventListener("animationend", () => {
+        setTheme(newTheme);
+        overlay.remove();
+    });
+}
