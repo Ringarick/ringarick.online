@@ -1,5 +1,6 @@
 const themeButton = document.querySelector("#theme-button");
 const body = document.body;
+
 const moonIcon = `
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
     <path d="M21 12.8A8.5 8.5 0 0 1 11.2 3a8.5 8.5 0 1 0 9.8 9.8Z"
@@ -8,6 +9,7 @@ const moonIcon = `
           stroke-linecap="round"
           stroke-linejoin="round"/>
 </svg>`;
+
 const sunIcon = `
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
     <circle cx="12" cy="12" r="4"
@@ -25,7 +27,8 @@ const sunIcon = `
           stroke-width="2"
           stroke-linecap="round"/>
 </svg>`;
-function setTheme(theme) {
+
+function setTheme(theme, save = true) {
     if (theme === "light") {
         body.classList.add("light-theme");
         themeButton.innerHTML = sunIcon;
@@ -34,34 +37,64 @@ function setTheme(theme) {
         themeButton.innerHTML = moonIcon;
     }
 
-    localStorage.setItem("theme", theme);
+    if (save) {
+        localStorage.setItem("theme", theme);
+    }
 }
-const savedTheme = localStorage.getItem("theme") || "dark";
-setTheme(savedTheme);
+
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme) {
+    setTheme(savedTheme);
+} else {
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+    setTheme(prefersDark.matches ? "dark" : "light", false);
+
+    prefersDark.addEventListener("change", (event) => {
+        if (!localStorage.getItem("theme")) {
+            setTheme(event.matches ? "dark" : "light", false);
+        }
+    });
+}
+
 const projectCards = document.querySelectorAll(".project-card");
+
 projectCards.forEach(card => {
     card.addEventListener("mousemove", (event) => {
         const rect = card.getBoundingClientRect();
+
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
-        card.style.setProperty("--mouse-x", `${(x / rect.width) * 100}%`);
-        card.style.setProperty("--mouse-y", `${(y / rect.height) * 100}%`);
+
+        card.style.setProperty(
+            "--mouse-x",
+            `${(x / rect.width) * 100}%`
+        );
+
+        card.style.setProperty(
+            "--mouse-y",
+            `${(y / rect.height) * 100}%`
+        );
+
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
+
         const offsetX = x - centerX;
         const offsetY = y - centerY;
+
         const rotateX = (offsetY / centerY) * 10;
         const rotateY = (offsetX / centerX) * 10;
+
         card.style.setProperty("--rotate-x", `${-rotateX}deg`);
-        card.style.setProperty("--rotate-y", `${rotateY}deg`);   
+        card.style.setProperty("--rotate-y", `${rotateY}deg`);
     });
+
     card.addEventListener("mouseleave", () => {
-        const rotateX = 0;
-        const rotateY = 0;
         card.style.setProperty("--mouse-x", "50%");
         card.style.setProperty("--mouse-y", "50%");
-        card.style.setProperty("--rotate-x", `${rotateX}deg`);
-        card.style.setProperty("--rotate-y", `${rotateY}deg`);
+        card.style.setProperty("--rotate-x", "0deg");
+        card.style.setProperty("--rotate-y", "0deg");
     });
 });
 
@@ -71,8 +104,15 @@ function animateThemeChange() {
     const x = rect.left + rect.width / 2;
     const y = rect.top + rect.height / 2;
 
-    document.documentElement.style.setProperty("--theme-x", `${x}px`);
-    document.documentElement.style.setProperty("--theme-y", `${y}px`);
+    document.documentElement.style.setProperty(
+        "--theme-x",
+        `${x}px`
+    );
+
+    document.documentElement.style.setProperty(
+        "--theme-y",
+        `${y}px`
+    );
 
     const newTheme = body.classList.contains("light-theme")
         ? "dark"
