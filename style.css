@@ -175,8 +175,9 @@ p {
 #contact span {
     color: var(--span-color);
     font-weight: 500;
-    width: 60px;
+    width: 80px;
     display: inline-block;
+    text-align: center;
 }
 
 
