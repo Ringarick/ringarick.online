@@ -69,11 +69,7 @@ projectCards.forEach(card => {
 
         const offsetX = x - centerX;
         const offsetY = y - centerY;
-        
-        const moveX = offsetX/10;
-        const moveY = offsetY/10;
-        card.style.setProperty("--move-x", `${moveX}px`);
-        card.style.setProperty("--move-y", `${moveY}px`);
+
         
          const rotateX = (offsetY / centerY) * 10; // Adjust the multiplier for more/less rotation
         const rotateY = (offsetX / centerX) * 10; // Adjust the multiplier for more/less rotation
@@ -89,14 +85,11 @@ projectCards.forEach(card => {
     });
 
     card.addEventListener("mouseleave", () => {
-        const moveX = 0;
-        const moveY = 0;
         const rotateX = 0;
         const rotateY = 0;
+        
         card.style.setProperty("--mouse-x", "50%");
         card.style.setProperty("--mouse-y", "50%");
-        card.style.setProperty("--move-x", `${moveX}px`);
-        card.style.setProperty("--move-y", `${moveY}px`);
         card.style.setProperty("--rotate-x", `${rotateX}deg`);
         card.style.setProperty("--rotate-y", `${rotateY}deg`);
     });
