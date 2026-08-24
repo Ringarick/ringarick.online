@@ -396,7 +396,13 @@ footer>a {
 
 .project-card {
     transform:
-    translate(var(--move-x, 0px), var(--move-y, 0px))
+    translate(
+    calc((var(--mouse-x) - 50%) / 10),
+    calc((var(--mouse-y) - 50%) / 10)
+)
     rotateX(var(--rotate-x, 0deg))
     rotateY(var(--rotate-y, 0deg));
+
+    
+
 }

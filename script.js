@@ -61,8 +61,8 @@ projectCards.forEach(card => {
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
 
-        card.style.setProperty("--mouse-x", `${x}px`);
-        card.style.setProperty("--mouse-y", `${y}px`);
+        card.style.setProperty("--mouse-x", `${(x / rect.width) * 100}%`);
+        card.style.setProperty("--mouse-y", `${(y / rect.height) * 100}%`);
         
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
@@ -93,7 +93,8 @@ projectCards.forEach(card => {
         const moveY = 0;
         const rotateX = 0;
         const rotateY = 0;
-        
+        card.style.setProperty("--mouse-x", "50%");
+        card.style.setProperty("--mouse-y", "50%");
         card.style.setProperty("--move-x", `${moveX}px`);
         card.style.setProperty("--move-y", `${moveY}px`);
         card.style.setProperty("--rotate-x", `${rotateX}deg`);
