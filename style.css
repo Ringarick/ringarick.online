@@ -231,6 +231,8 @@ main #projects div a {
     border-radius: 5px;
     display: inline-block;
     padding: 2px 8px;
+    margin-top: 10px;
+    
     
 }
 main #projects div a:hover {
@@ -386,6 +388,6 @@ footer>a {
 {
     font-size: 16px;
     color: var(--span-color);
-    margin-top: 10px;
     text-align: right;
+    margin:10px;
 }
