@@ -412,16 +412,59 @@ footer>a {
 }
 
 ::view-transition-new(root) {
-    clip-path: circle(0% at var(--theme-x) var(--theme-y));
-    animation: theme-reveal 1.2s linear forwards;
+    clip-path: polygon(
+        100% 0%,
+        100% 0%,
+        100% 0%,
+        100% 0%,
+        100% 0%,
+        100% 0%,
+        100% 0%
+    );
+
+    animation: theme-wave 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-@keyframes theme-reveal {
-    from {
-        clip-path: circle(0% at var(--theme-x) var(--theme-y));
+@keyframes theme-wave {
+    0% {
+        clip-path: polygon(
+            100% 0%, 100% 0%, 100% 0%, 100% 0%,
+            100% 0%, 100% 0%, 100% 0%
+        );
     }
 
-    to {
-        clip-path: circle(150% at var(--theme-x) var(--theme-y));
+    20% {
+        clip-path: polygon(
+            80% 0%, 100% 0%, 100% 100%, 95% 100%,
+            80% 75%, 72% 35%, 72% 0%
+        );
+    }
+
+    40% {
+        clip-path: polygon(
+            60% 0%, 100% 0%, 100% 100%, 85% 100%,
+            60% 72%, 50% 35%, 50% 0%
+        );
+    }
+
+    60% {
+        clip-path: polygon(
+            35% 0%, 100% 0%, 100% 100%, 60% 100%,
+            35% 75%, 25% 40%, 25% 0%
+        );
+    }
+
+    80% {
+        clip-path: polygon(
+            15% 0%, 100% 0%, 100% 100%, 25% 100%,
+            15% 80%, 8% 40%, 8% 0%
+        );
+    }
+
+    100% {
+        clip-path: polygon(
+            0% 0%, 100% 0%, 100% 100%, 0% 100%,
+            0% 100%, 0% 100%, 0% 0%
+        );
     }
 }

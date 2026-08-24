@@ -38,7 +38,6 @@ function setTheme(theme) {
 }
 const savedTheme = localStorage.getItem("theme") || "dark";
 setTheme(savedTheme);
-themeButton.addEventListener("click", animateThemeChange);
 const projectCards = document.querySelectorAll(".project-card");
 projectCards.forEach(card => {
     card.addEventListener("mousemove", (event) => {
