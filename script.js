@@ -52,12 +52,3 @@ themeButton.addEventListener("click", () => {
 
     setTheme(newTheme);
 });
-
-
-const mainProject = document.getElementById("main-project");
-const projectsContainer = document.getElementById("projects-container");
-
-mainProject.addEventListener("click", () => {
-    mainProject.classList.toggle("open");
-    projectsContainer.classList.toggle("open");
-});
