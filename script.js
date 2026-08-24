@@ -38,12 +38,7 @@ function setTheme(theme) {
 }
 const savedTheme = localStorage.getItem("theme") || "dark";
 setTheme(savedTheme);
-themeButton.addEventListener("click", () => {
-    const newTheme = body.classList.contains("light-theme")
-        ? "dark"
-        : "light";
-    setTheme(newTheme);
-});
+themeButton.addEventListener("click", animateThemeChange);
 const projectCards = document.querySelectorAll(".project-card");
 projectCards.forEach(card => {
     card.addEventListener("mousemove", (event) => {
@@ -77,25 +72,21 @@ function animateThemeChange() {
     const x = rect.left + rect.width / 2;
     const y = rect.top + rect.height / 2;
 
+    document.documentElement.style.setProperty("--theme-x", `${x}px`);
+    document.documentElement.style.setProperty("--theme-y", `${y}px`);
+
     const newTheme = body.classList.contains("light-theme")
         ? "dark"
         : "light";
 
-    const overlay = document.createElement("div");
-
-    overlay.classList.add("theme-transition", newTheme);
-
-    document.body.appendChild(overlay);
-
-    overlay.style.setProperty("--x", `${x}px`);
-    overlay.style.setProperty("--y", `${y}px`);
-
-    requestAnimationFrame(() => {
-        overlay.classList.add("active");
-    });
-
-    overlay.addEventListener("animationend", () => {
+    if (!document.startViewTransition) {
         setTheme(newTheme);
-        overlay.remove();
+        return;
+    }
+
+    document.startViewTransition(() => {
+        setTheme(newTheme);
     });
 }
+
+themeButton.addEventListener("click", animateThemeChange);
