@@ -57,6 +57,7 @@ projectCards.forEach(card => {
         const offsetX = x - centerX;
         const offsetY = y - centerY;
         const rotateX = (offsetY / centerY) * 10;
+        const rotateY = (offsetX / centerX) * 10;
         card.style.setProperty("--rotate-x", `${-rotateX}deg`);
         card.style.setProperty("--rotate-y", `${rotateY}deg`);   
     });
