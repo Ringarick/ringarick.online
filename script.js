@@ -1,6 +1,5 @@
 const themeButton = document.querySelector("#theme-button");
 const body = document.body;
-
 const moonIcon = `
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
     <path d="M21 12.8A8.5 8.5 0 0 1 11.2 3a8.5 8.5 0 1 0 9.8 9.8Z"
@@ -51,4 +50,38 @@ themeButton.addEventListener("click", () => {
         : "light";
 
     setTheme(newTheme);
+});
+
+const projectCards = document.querySelectorAll(".project-card");
+
+
+projectCards.forEach(card => {
+    card.addEventListener("mousemove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const offsetX = x - centerX;
+        const offsetY = y - centerY;
+        
+        const moveX = offsetX/10;
+        const moveY = offsetY/10;
+
+        card.style.transform = `translate(${moveX}px, ${moveY}px)`;
+
+        const rotateX = (offsetY / centerY) * 10; // Adjust the multiplier for more/less rotation
+        const rotateY = (offsetX / centerX) * 10; // Adjust the multiplier for more/less rotation
+
+        card.style.transform += ` rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+        card.style.transform = "";
+    });
 });
