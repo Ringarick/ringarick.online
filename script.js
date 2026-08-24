@@ -8,7 +8,6 @@ const moonIcon = `
           stroke-linecap="round"
           stroke-linejoin="round"/>
 </svg>`;
-
 const sunIcon = `
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
     <circle cx="12" cy="12" r="4"
@@ -26,7 +25,6 @@ const sunIcon = `
           stroke-width="2"
           stroke-linecap="round"/>
 </svg>`;
-
 function setTheme(theme) {
     if (theme === "light") {
         body.classList.add("light-theme");
@@ -38,56 +36,33 @@ function setTheme(theme) {
 
     localStorage.setItem("theme", theme);
 }
-
 const savedTheme = localStorage.getItem("theme") || "dark";
-
 setTheme(savedTheme);
-
-
 themeButton.addEventListener("click", () => {
     const newTheme = body.classList.contains("light-theme")
         ? "dark"
         : "light";
-
     setTheme(newTheme);
 });
-
 const projectCards = document.querySelectorAll(".project-card");
-
-
 projectCards.forEach(card => {
     card.addEventListener("mousemove", (event) => {
         const rect = card.getBoundingClientRect();
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
-
         card.style.setProperty("--mouse-x", `${(x / rect.width) * 100}%`);
         card.style.setProperty("--mouse-y", `${(y / rect.height) * 100}%`);
-        
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-
         const offsetX = x - centerX;
         const offsetY = y - centerY;
-
-        
-         const rotateX = (offsetY / centerY) * 10; // Adjust the multiplier for more/less rotation
-        const rotateY = (offsetX / centerX) * 10; // Adjust the multiplier for more/less rotation
-
-        
+        const rotateX = (offsetY / centerY) * 10;
         card.style.setProperty("--rotate-x", `${-rotateX}deg`);
-        card.style.setProperty("--rotate-y", `${rotateY}deg`);
-
-        
-
-       
-       
+        card.style.setProperty("--rotate-y", `${rotateY}deg`);   
     });
-
     card.addEventListener("mouseleave", () => {
         const rotateX = 0;
         const rotateY = 0;
-        
         card.style.setProperty("--mouse-x", "50%");
         card.style.setProperty("--mouse-y", "50%");
         card.style.setProperty("--rotate-x", `${rotateX}deg`);
