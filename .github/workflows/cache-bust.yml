@@ -1,4 +1,4 @@
--name: Cache bust
+name: Cache bust
 
 on:
   push:
