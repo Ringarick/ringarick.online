@@ -37,7 +37,7 @@ jobs:
       - name: Commit changes
         shell: bash
         run: |
-          git add / 404.html
+          git add 404.html
 
           if git diff --cached --quiet; then
             echo "No changes needed."
