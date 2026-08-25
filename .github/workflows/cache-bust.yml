@@ -24,7 +24,7 @@ jobs:
           CSS_HASH=$(sha256sum style.css | cut -c1-12)
           JS_HASH=$(sha256sum script.js | cut -c1-12)
 
-          for file in / 404.html; do
+          for file in 404.html; do
             sed -i -E \
               "s|href=\"style\.css([^\" ]*)\"|href=\"style.css?v=${CSS_HASH}\"|" \
               "$file"
