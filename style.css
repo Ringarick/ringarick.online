@@ -534,7 +534,7 @@ footer>a {
     margin-top: 20px;
 }
 
-.blender-section div {
+#blender-section div {
     flex: 1;
     text-align: center;
 }
