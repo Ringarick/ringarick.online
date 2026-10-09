@@ -525,3 +525,35 @@ footer>a {
     transform: translateX(-2px);
 }
 
+.blender-section {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.blender-section div {
+    flex: 1;
+    text-align: center;
+}
+
+.blender-title {
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    color: var(--header-color);
+}
+
+.blender-image {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.blender-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(103, 11, 241, 0.5);
+}
